@@ -145,6 +145,8 @@ def test_radial_profile():
     data = Gaussian2DKernel(1.5, x_size=25, y_size=25)
     xx, yy = np.meshgrid(np.arange(25), np.arange(25))
     x0, y0 = np.where(data.array == data.array.max())
+    x0 = int(x0[0])
+    y0 = int(y0[0])
 
     rad_in = np.sqrt((xx - x0)**2 + (yy - y0)**2)
     rad_in = rad_in.ravel()
@@ -185,6 +187,8 @@ def test_radial_profile_cumulative():
     data = Gaussian2DKernel(1.5, x_size=ksize, y_size=ksize)
     xx, yy = np.meshgrid(np.arange(ksize), np.arange(ksize))
     x0, y0 = np.where(data.array == data.array.max())
+    x0 = int(x0[0])
+    y0 = int(y0[0])
     rad_in = np.sqrt((xx - x0)**2 + (yy - y0)**2)
 
     rad_in = rad_in.ravel()
